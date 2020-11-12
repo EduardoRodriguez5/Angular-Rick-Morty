@@ -10,11 +10,17 @@ export class CharactersSimpleService {
   constructor(private httpClient: HttpClient) { }
 
   getDataSimple(){
-    return this.httpClient.get('https://rickandmortyapi.com/api/character/');
+ return this.httpClient.get(environment.url + 'character');
   }
-  //
-  // getDataSimple(){
-  //   return this.httpClient.get(environment.url + 'character');
-  // }
+  
+  getDataId(idCharacter){
+
+    return this.httpClient.get(environment.url + 'character/' + idCharacter);
+  }
+
+  getFilterName(nameC){
+
+    return this.httpClient.get(environment.url + 'character/' + "?name="+ nameC);
+  }
 
 }

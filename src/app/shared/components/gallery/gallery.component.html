@@ -1,10 +1,15 @@
 <div class="c-gallery">
   <div class="row">
-    <div *ngFor="let character of characters" class="col-12 col-sm-6 col-md-4 col-lg-3">
-      <figure class="c-gallery__figure">
-        <img class="c-gallery__img" src="{{character.image ? character.image : 'assets/img/earth.png'}}" alt=""/>
-        <figcaption class="c-gallery__figcaption"><span
-          class="c-gallery__text">{{character.name | priorityName:'Rick'}}</span></figcaption>
+    <div *ngFor="let character of characters; index as i" class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <figure class="c-gallery__figure">        
+        
+        <button  *ngIf="router.url ==='/characters'|| router.url ==='/locations'" (click)="favoriteCharacter(character)">Añadir a Fav</button>
+        <button  *ngIf="router.url ==='/favorites'" (click)="deletefavoriteCharacter(i)">Eliminar Fav</button>
+        <a [routerLink]="['/characters', character.id]">
+          <img class="c-gallery__img" src="{{character.image ? character.image : 'assets/img/earth.png'}}" alt=""/>
+          <figcaption class="c-gallery__figcaption"><span
+            class="c-gallery__text">{{character.name | priorityNamePlus:'Rick': '*'}}</span></figcaption>
+        </a>
       </figure>
     </div>
   </div>

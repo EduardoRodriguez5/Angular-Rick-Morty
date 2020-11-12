@@ -15,8 +15,14 @@ export class CharacterSimplePageComponent implements OnInit {
   ngOnInit(): void {
     this.charactersSimpleService.getDataSimple().subscribe( (res:any) => {
       this.characters = res.results;
-      console.log('##ABEL## >> AppComponent >>  res', res.results);
     });
   }
+
+  saveFormPro($event){
+        this.charactersSimpleService.getFilterName($event.name).subscribe((res: any) => {
+        this.characters = res.results;
+
+    });
+    }
 
 }

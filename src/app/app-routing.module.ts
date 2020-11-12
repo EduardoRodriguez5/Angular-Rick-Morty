@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { CharacterSimplePageComponent } from "./pages/character-simple-page/character-simple-page.component";
 import { LocationsSimplePageComponent } from "./pages/locations-simple-page/locations-simple-page.component";
+import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
+import { CharacterDetailSimplePageComponent } from './pages/character-simple-page/pages/character-detail-simple-page/character-detail-simple-page.component';
 
 // const routes: Routes = [{
 //   path: '', loadChildren: () => import('./pages/home-page/home-page.module').then(m => m.HomePageModule),
@@ -20,7 +22,14 @@ const routes: Routes = [{
   path: 'characters', component: CharacterSimplePageComponent
 }, {
   path: 'locations', component: LocationsSimplePageComponent,
-}
+},
+{
+  path: 'favorites', component: FavoritesPageComponent,
+},
+  {
+    path: 'characters/:idCharacter', component: CharacterDetailSimplePageComponent
+  }
+
 ];
 
 @NgModule({
